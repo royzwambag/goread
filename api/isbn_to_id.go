@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	goread "github.com/royzwambag/go-read"
+	"github.com/royzwambag/goread"
 )
 
 // ISBNToID returns the goodreads ID(s) of the given book(s) (found by ISBN)

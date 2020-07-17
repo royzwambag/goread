@@ -6,7 +6,7 @@ import (
 	"log"
 	"strconv"
 
-	goread "github.com/royzwambag/go-read/types"
+	goread "github.com/royzwambag/goread/types"
 )
 
 // AuthorInfo returns an AuthorList struct with a lot of information about the author, including their books
