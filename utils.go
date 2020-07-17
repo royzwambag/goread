@@ -1,4 +1,4 @@
-package goodreads
+package goread
 
 import "strconv"
 

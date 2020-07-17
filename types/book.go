@@ -1,4 +1,4 @@
-package goodreads
+package goread
 
 // Book is a struct that contains all data of a book
 type Book struct {

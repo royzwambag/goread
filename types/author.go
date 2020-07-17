@@ -1,4 +1,4 @@
-package goodreads
+package goread
 
 // AuthorList is a struct that contains all data of an author
 type AuthorList struct {

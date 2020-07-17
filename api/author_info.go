@@ -1,4 +1,4 @@
-package goodreads
+package goread
 
 import (
 	"encoding/xml"
@@ -6,12 +6,12 @@ import (
 	"log"
 	"strconv"
 
-	goodreads "github.com/royzwambag/go-read/goodreads/types"
+	goread "github.com/royzwambag/go-read/types"
 )
 
 // AuthorInfo returns an AuthorList struct with a lot of information about the author, including their books
-func AuthorInfo(id int) (goodreads.AuthorList, error) {
-	var authorList goodreads.AuthorList
+func AuthorInfo(id int) (goread.AuthorList, error) {
+	var authorList goread.AuthorList
 
 	url := "https://www.goodreads.com/author/show/"
 	parameters := map[string]string{
