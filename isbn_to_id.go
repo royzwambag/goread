@@ -3,8 +3,6 @@ package goread
 import (
 	"log"
 	"strings"
-
-	"github.com/royzwambag/goread"
 )
 
 // ISBNToID returns the goodreads ID(s) of the given book(s) (found by ISBN)
@@ -24,7 +22,7 @@ func ISBNToID(isbn ...string) ([]int, error) {
 	}
 
 	stringIDs := strings.Split(string(response), ",")
-	ids = goread.StringSliceToIntSlice(stringIDs)
+	ids = StringSliceToIntSlice(stringIDs)
 
 	return ids, nil
 }
