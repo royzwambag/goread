@@ -1,5 +1,6 @@
 # goread
-A simple goodreads api consumer written in go
+A simple goodreads api consumer written in go. 
+Note: This does not contain all api calls (yet). The goodreads api has a mixture of both XML and JSON responses.
 
 # Installation
 
@@ -29,4 +30,8 @@ func main() {
     goread.ISBNToID("0062565710", "9780596802813")
     // returns int[]{34017076, 6356381}
 
+    // Get review statistics of one or multiple books with given isbns
+    // This function accepts both isbn and isbn13
+    goread.BookReviewStatistics("0062565710", "9780596802813")
+    // returns BookReviewStatistics[]{}
 ```

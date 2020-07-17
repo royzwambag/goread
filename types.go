@@ -46,3 +46,16 @@ type Book struct {
 	RatingsCount       int     `xml:"ratings_count"`
 	Description        string  `xml:"description"`
 }
+
+// BookReviewStatistic is a struct that information about the reviews
+type BookReviewStatistic struct {
+	ID               int     `json:"id"`
+	ISBN             string  `json:"isbn"`
+	ISBN13           string  `json:"isbn13"`
+	AverageRating    float32 `json:"average_rating"`
+	RatingsCount     int     `json:"ratings_count"`
+	ReviewsCount     int     `json:"reviews_count"`
+	TextReviewsCount int     `json:"text_reviews_count"`
+	WorkRatingsCount int     `json:"work_ratings_count"`
+	WorkReviewsCount int     `json:"work_reviews_count"`
+}

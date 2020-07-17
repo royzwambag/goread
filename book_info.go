@@ -13,7 +13,6 @@ type nestedBook struct {
 // BookInfo returns a Book struct with a lot of information about the book
 func BookInfo(goodreadsID int) (Book, error) {
 	var nestedBook nestedBook
-	var book Book
 
 	url := "https://www.goodreads.com/book/show/"
 	parameters := map[string]string{
@@ -23,7 +22,7 @@ func BookInfo(goodreadsID int) (Book, error) {
 	response, err := get(url, parameters)
 	if err != nil {
 		log.Fatalln(err)
-		return book, err
+		return nestedBook.Book, err
 	}
 	xml.Unmarshal(response, &nestedBook)
 
