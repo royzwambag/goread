@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	goodreads.PaginatedAuthorList(2917920, 1)
+	goodreads.ISBNToID("1481442546", "1481424270", "9781784973254")
 }
