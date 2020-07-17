@@ -15,14 +15,14 @@ func ISBNToID(isbn ...string) ([]int, error) {
 		"isbn": strings.Join(isbn[:], ","),
 	}
 
-	response, err := Get(url, parameters)
+	response, err := get(url, parameters)
 	if err != nil {
 		log.Fatalln(err)
 		return ids, err
 	}
 
 	stringIDs := strings.Split(string(response), ",")
-	ids = StringSliceToIntSlice(stringIDs)
+	ids = stringSliceToIntSlice(stringIDs)
 
 	return ids, nil
 }

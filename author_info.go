@@ -15,7 +15,7 @@ func AuthorInfo(id int) (AuthorList, error) {
 		"id": strconv.Itoa(id),
 	}
 
-	response, err := Get(url, parameters)
+	response, err := get(url, parameters)
 	if err != nil {
 		log.Fatalln(err)
 		return authorList, err

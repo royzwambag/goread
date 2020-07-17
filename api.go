@@ -11,7 +11,7 @@ import (
 var developerKey string = os.Getenv("GOODREADS_DEVELOPER_KEY")
 
 // Get makes a GET call to the goodreads api with given url and parameters
-func Get(url string, parameters map[string]string) ([]byte, error) {
+func get(url string, parameters map[string]string) ([]byte, error) {
 	client := http.Client{
 		Timeout: time.Duration(time.Second * 15),
 	}
