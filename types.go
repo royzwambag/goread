@@ -1,10 +1,5 @@
 package goread
 
-// AuthorList is a struct that contains all data of an author
-type AuthorList struct {
-	Author Author `xml:"author"`
-}
-
 // Author is a struct that contains all data of an author
 type Author struct {
 	ID              int    `xml:"id"`

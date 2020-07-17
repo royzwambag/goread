@@ -6,9 +6,14 @@ import (
 	"strconv"
 )
 
-// AuthorInfo returns an AuthorList struct with a lot of information about the author, including their books
-func AuthorInfo(id int) (AuthorList, error) {
-	var authorList AuthorList
+type xmlResponse struct {
+	Author Author `xml:"author"`
+}
+
+// AuthorInfo returns an Author struct with a lot of information about the author, including their books
+func AuthorInfo(id int) (Author, error) {
+	var xmlResponse xmlResponse
+	var author Author
 
 	url := "https://www.goodreads.com/author/show/"
 	parameters := map[string]string{
@@ -18,9 +23,9 @@ func AuthorInfo(id int) (AuthorList, error) {
 	response, err := get(url, parameters)
 	if err != nil {
 		log.Fatalln(err)
-		return authorList, err
+		return author, err
 	}
-	xml.Unmarshal(response, &authorList)
+	xml.Unmarshal(response, &xmlResponse)
 
-	return authorList, nil
+	return xmlResponse.Author, nil
 }

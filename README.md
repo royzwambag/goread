@@ -20,7 +20,7 @@ import (
 
 func main() {
     // Get information from an author with given goodreads id
-    // This method will return an `AuthorList` struct which contains
+    // This method will return an `Author` struct which contains
     // all the data about the author
     goread.AuthorInfo(18541)
 
