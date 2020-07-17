@@ -1,10 +1,5 @@
 package goodreads
 
-// BookList is a list of book structs
-type BookList struct {
-	Books []Book `xml:"book"`
-}
-
 // Book is a struct that contains all data of a book
 type Book struct {
 	ID                 int     `xml:"id"`
