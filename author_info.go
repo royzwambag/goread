@@ -6,13 +6,13 @@ import (
 	"strconv"
 )
 
-type xmlResponse struct {
+type nestedAuthor struct {
 	Author Author `xml:"author"`
 }
 
 // AuthorInfo returns an Author struct with a lot of information about the author, including their books
 func AuthorInfo(id int) (Author, error) {
-	var xmlResponse xmlResponse
+	var nestedAuthor nestedAuthor
 	var author Author
 
 	url := "https://www.goodreads.com/author/show/"
@@ -25,7 +25,7 @@ func AuthorInfo(id int) (Author, error) {
 		log.Fatalln(err)
 		return author, err
 	}
-	xml.Unmarshal(response, &xmlResponse)
+	xml.Unmarshal(response, &nestedAuthor)
 
-	return xmlResponse.Author, nil
+	return nestedAuthor.Author, nil
 }
