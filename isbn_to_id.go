@@ -7,7 +7,7 @@ import (
 
 // ISBNToID returns the goodreads ID(s) of the given book(s) (found by ISBN)
 // This function supports both ISBN and ISBN13
-func ISBNToID(isbn ...string) ([]int, error) {
+func (client *Client) ISBNToID(isbn ...string) ([]int, error) {
 	var ids []int
 
 	url := "https://www.goodreads.com/book/isbn_to_id/"
@@ -15,7 +15,7 @@ func ISBNToID(isbn ...string) ([]int, error) {
 		"isbn": strings.Join(isbn[:], ","),
 	}
 
-	response, err := get(url, parameters)
+	response, err := client.get(url, parameters)
 	if err != nil {
 		log.Fatalln(err)
 		return ids, err
