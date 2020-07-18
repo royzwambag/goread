@@ -16,8 +16,6 @@ Set your goodreads developer key in the `GOODREADS_DEVELOPER_KEY` environment va
 package main
 
 import (
-    "fmt"
-
     "github.com/royzwambag/goread"
 )
 
