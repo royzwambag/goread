@@ -8,13 +8,25 @@ import (
 	"time"
 )
 
-var developerKey string = os.Getenv("GOODREADS_DEVELOPER_KEY")
+// Client allows you to make api calls
+type Client struct {
+	http *http.Client
+	key  string
+}
+
+// NewClient returns a client with a 10 second timeout and the developer key from your environment variables
+func NewClient() Client {
+	client := http.Client{
+		Timeout: time.Duration(time.Second * 10),
+	}
+	return Client{
+		http: &client,
+		key:  os.Getenv("GOODREADS_DEVELOPER_KEY"),
+	}
+}
 
 // Get makes a GET call to the goodreads api with given url and parameters
-func get(url string, parameters map[string]string) ([]byte, error) {
-	client := http.Client{
-		Timeout: time.Duration(time.Second * 15),
-	}
+func (client *Client) get(url string, parameters map[string]string) ([]byte, error) {
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		log.Fatalln(err)
@@ -22,13 +34,13 @@ func get(url string, parameters map[string]string) ([]byte, error) {
 	}
 
 	query := request.URL.Query()
-	query.Add("key", developerKey)
+	query.Add("key", client.key)
 	for key, value := range parameters {
 		query.Add(key, value)
 	}
 	request.URL.RawQuery = query.Encode()
 
-	response, err := client.Do(request)
+	response, err := client.http.Do(request)
 	if err != nil {
 		log.Fatalln(err)
 		return nil, err
